@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.0 (Python 3.10.12 on linux)" generated="2024-05-16T15:13:21.891765" rpa="false" schemaversion="5">
+<suite id="s1" name="Test" source="/home/mhd/rftest2/test.robot">
+<test id="s1-t1" name="Open Google &amp; Verify Google" line="23">
+<kw name="Open Website">
+<kw name="Evaluate" owner="BuiltIn">
+<msg time="2024-05-16T15:13:22.229782" level="INFO">${chrome_options} = &lt;selenium.webdriver.chrome.options.Options object at 0x7435c279cf10&gt;</msg>
+<var>${chrome_options}</var>
+<arg>sys.modules['selenium.webdriver'].ChromeOptions()</arg>
+<arg>sys, selenium.webdriver</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="PASS" start="2024-05-16T15:13:22.228694" elapsed="0.002475"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--no-sandbox</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2024-05-16T15:13:22.231731" elapsed="0.000807"/>
+</kw>
+<kw name="Call Method" owner="BuiltIn">
+<arg>${chrome_options}</arg>
+<arg>add_argument</arg>
+<arg>--headless</arg>
+<doc>Calls the named method of the given object with the provided arguments.</doc>
+<status status="PASS" start="2024-05-16T15:13:22.232953" elapsed="0.000658"/>
+</kw>
+<kw name="Open Browser" owner="SeleniumLibrary">
+<msg time="2024-05-16T15:13:22.235358" level="INFO">Opening browser 'chrome' to base url 'https://www.google.com'.</msg>
+<arg>https://www.google.com</arg>
+<arg>chrome</arg>
+<arg>options=${chrome_options}</arg>
+<arg>executable_path=/usr/bin/chromedriver</arg>
+<doc>Opens a new browser instance to the optional ``url``.</doc>
+<status status="PASS" start="2024-05-16T15:13:22.234068" elapsed="2.950844"/>
+</kw>
+<status status="PASS" start="2024-05-16T15:13:22.225916" elapsed="2.961132"/>
+</kw>
+<kw name="Verify Page Contains Google">
+<kw name="Get Title" owner="SeleniumLibrary">
+<msg time="2024-05-16T15:13:25.218003" level="INFO">${Get_title} = Google</msg>
+<var>${Get_title}</var>
+<doc>Returns the title of the current page.</doc>
+<status status="PASS" start="2024-05-16T15:13:25.194443" elapsed="0.024678"/>
+</kw>
+<kw name="Should Be Equal As Strings" owner="BuiltIn">
+<arg>${Get_title}</arg>
+<arg>Google</arg>
+<doc>Fails if objects are unequal after converting them to strings.</doc>
+<status status="PASS" start="2024-05-16T15:13:25.221160" elapsed="0.150689"/>
+</kw>
+<kw name="Close Browser" owner="SeleniumLibrary">
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2024-05-16T15:13:25.372438" elapsed="3.320358"/>
+</kw>
+<status status="PASS" start="2024-05-16T15:13:25.189724" elapsed="3.503487"/>
+</kw>
+<status status="PASS" start="2024-05-16T15:13:22.223782" elapsed="6.469913"/>
+</test>
+<doc>My First Test
+This test will Verify Google</doc>
+<status status="PASS" start="2024-05-16T15:13:21.896710" elapsed="6.798406"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test">Test</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
